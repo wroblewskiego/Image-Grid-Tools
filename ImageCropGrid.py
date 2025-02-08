@@ -2,8 +2,8 @@ from PIL import Image
 import os
 
 # Parameters
-IMAGE_PATH = r"airways1_10232024.png"
-OUTPUT_FOLDER = r"SAMGridCrop"
+IMAGE_PATH = r""
+OUTPUT_PATH = r""
 GRID_SIZE = 3  # Number of rows and columns in the grid
 
 def crop_image_to_grid(image_path, output_folder, grid_size):
@@ -19,8 +19,8 @@ def crop_image_to_grid(image_path, output_folder, grid_size):
                 img.crop((col * cell_width, row * cell_height, (col + 1) * cell_width, (row + 1) * cell_height))\
                     .save(os.path.join(output_folder, f"grid_{row}_{col}.png"))
 
-        print("Cropping completed. Images saved in the output folder.")
+        print("Cropping completed. Images saved in the output path.")
     except Exception as e:
         print(f"An error occurred: {e}")
 if __name__ == "__main__":
-    crop_image_to_grid(IMAGE_PATH, OUTPUT_FOLDER, GRID_SIZE)
+    crop_image_to_grid(IMAGE_PATH, OUTPUT_PATH, GRID_SIZE)
